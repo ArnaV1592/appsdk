@@ -1,0 +1,22 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      mkdir -p ./app/libs
+      cp ./qc_sdk_2.0.12.aar ./app/libs/
+      ./gradlew build
+    command: |
+      ./gradlew tasks
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 5037
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - redhat.java
+    - mathiasfrohlich.Kotlin 
